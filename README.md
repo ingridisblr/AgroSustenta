@@ -46,7 +46,7 @@ Usuário	Função
 
 Frontend: HTML5, CSS3, JavaScript
 
-Backend: Python (Flask ou Django)
+Backend: Python (Java e SpringBoot)
 
 Banco de Dados: MySQL
 
@@ -81,5 +81,6 @@ Promover a eficiência logística e o uso consciente de recursos públicos.
 Design de Interface: Protótipo desenvolvido no Figma
 
 Desenvolvimento Web: Equipe AgroSustenta
+
 
 Supervisão Técnica: Instituto Agronômico de Pernambuco (IPA)
