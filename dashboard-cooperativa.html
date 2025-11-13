@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Cooperativa - AgroSustenta</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="dashboard-header-light">
+        <nav class="dashboard-nav">
+            <div class="nav-left">
+                <a href="login.html" class="dashboard-link">
+                    <span class="icon-arrow-left">❮</span> VOLTAR
+                </a>
+                <a href="#" class="dashboard-link active-link">COOPERATIVAS</a>
+                <a href="#" class="dashboard-link">NOVO LOTE</a>
+                <a href="#" class="dashboard-link">REGISTRAR</a>
+                <a href="#" class="dashboard-link">VER HISTÓRICO</a>
+            </div>
+            <div class="nav-right">
+                <a href="login.html" class="dashboard-login-button">
+                    <span class="icon-person">👤</span> LOGIN
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="dashboard-content">
+
+            <div class="dashboard-card chart-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3>Seu Dashboard</h3>
+                        <p>Analise seu desempenho</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-button"><span class="icon">🗑️</span> Delete</button>
+                        <button class="action-button"><span class="icon">Filters</span></button>
+                        <button class="action-button"><span class="icon">📤</span> Export</button>
+                        <button class="action-button primary-action"><span class="icon">➕</span> Add new CTA</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="myAreaChart"></canvas>
+                </div>
+            </div>
+
+            <div class="dashboard-card summary-table">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3><span class="icon-blue">💙</span> Bloco de Resumo Geral</h3>
+                        <p>status atual dos lotes de sementes cadastrados pela cooperativa</p>
+                    </div>
+                    <div class="card-actions">
+                        <button class="action-button"><span class="icon">🗑️</span> Delete</button>
+                        <button class="action-button"><span class="icon">Filters</span></button>
+                        <button class="action-button"><span class="icon">📤</span> Export</button>
+                        <button class="action-button primary-action"><span class="icon">➕</span> Add new CTA</button>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <div class="table-header-row">
+                        <div class="table-cell header-cell">Indicador <span class="sort-arrow">↓</span></div>
+                        <div class="table-cell header-cell">Valor <span class="sort-arrow">↓</span></div>
+                        <div class="table-cell header-cell">Descrição <span class="sort-arrow">↓</span></div>
+                    </div>
+                    
+                    <div class="table-data-row">
+                        <div class="table-cell">Total de Lotes Ativos</div>
+                        <div class="table-cell">12</div>
+                        <div class="table-cell description">Ainda estão dentro da validade e com sementes disponíveis.</div>
+                    </div>
+                    
+                    <div class="table-data-row">
+                        <div class="table-cell">Em Estoque</div>
+                        <div class="table-cell">7</div>
+                        <div class="table-cell description">Lotes armazenados e prontos para distribuição.</div>
+                    </div>
+
+                    <div class="table-data-row">
+                        <div class="table-cell">Em Distribuição</div>
+                        <div class="table-cell">3</div>
+                        <div
