@@ -1,0 +1,981 @@
+/* --- Configurações Globais --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* --- Cabeçalho e Navegação --- */
+header {
+    /* Cor verde da barra de navegação (ajuste o tom exato) */
+    background-color: #3a7d44; 
+    padding: 1.2rem 5%; /* Espaçamento interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Joga os links para um lado e o login para o outro */
+    align-items: center;
+}
+
+.nav-links a, .login-link a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+
+.nav-links a {
+    margin-right: 1.5rem; /* Espaçamento entre os links da esquerda */
+}
+
+.nav-links a:hover, .login-link a:hover {
+    /* Você pode adicionar um efeito de sublinhado ou mudança de cor */
+    opacity: 0.8;
+}
+
+/* --- Seção Principal (Hero) --- */
+.hero {
+    /* Define a imagem de fundo */
+    background-image: url('fazendeiroagronomo.jpg'); 
+    background-size: cover;       /* Cobre toda a área */
+    background-position: center;  /* Centraliza a imagem */
+    
+    /* Define a altura para ocupar a tela inteira menos a altura do cabeçalho */
+    height: calc(100vh - 75px); /* Ajuste 75px se a altura do header for diferente */
+
+    /* Alinhamento do conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinha o conteúdo à direita */
+    padding: 0 10%; /* Dá um espaçamento das bordas */
+}
+
+.hero-content {
+    max-width: 500px; /* Largura máxima para o bloco de texto */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.hero-content .logo {
+    width: 120px; /* Tamanho do logo */
+    margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+    /* Cor verde escura para o título */
+    color: #1A4A2A; 
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+.hero-content p {
+    /* Cor de texto mais suave para o subtítulo */
+    color: #333; 
+    font-size: 1.25rem;
+    margin: 0.5rem 0 1.5rem 0; /* Espaçamento (topo, lados, baixo) */
+}
+
+/* --- Botão (Call to Action) --- */
+.cta-button {
+    background-color: #1A4A2A; /* Mesma cor escura do H1 */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block; /* Para que o padding funcione corretamente */
+    transition: background-color 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+.cta-button:hover {
+    background-color: #0F2C1A; /* Tom mais escuro ao passar o mouse */
+}
+/* --- Seção 'O que é' --- */
+.what-is {
+    /* Imagem de fundo e overlay verde escuro */
+    background-image: linear-gradient(rgba(26, 74, 42, 0.85), rgba(26, 74, 42, 0.85)), url('maosdeagricultore.jpg');
+    background-size: cover;
+    background-position: center;
+    /* Efeito parallax: o fundo fica fixo ao rolar */
+    background-attachment: fixed; 
+    padding: 60px 20px;
+    color: #ffffff;
+}
+
+.what-is h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #ffffff; /* Cor branca para o título da seção */
+}
+
+/* Container principal da seção */
+.what-is-content {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar em telas menores */
+    gap: 40px;
+    align-items: center;
+}
+
+/* Colunas da esquerda e direita */
+.what-is-left, .what-is-right {
+    flex: 1; /* Faz as duas colunas dividirem o espaço */
+    min-width: 320px; /* Largura mínima antes de quebrar */
+}
+
+/* Caixa de descrição verde */
+.description-box {
+    background-color: #1A4A2A; /* Verde escuro (o mesmo do header) */
+    /* Borda verde clara como na imagem */
+    border: 2px solid rgba(163, 217, 176, 0.7); 
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.description-box .icon {
+    font-size: 2.5rem;
+    color: #c8e6c9; /* Verde bem claro */
+}
+
+.description-box p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* Lista de Pilares (Sustentabilidade, etc.) */
+.pillars {
+    list-style: none;
+    padding: 0;
+}
+
+.pillars li {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+}
+
+.pillars .icon {
+    font-size: 1.8rem;
+    /* Cor amarela/verde dos ícones */
+    color: #dcedc8; 
+}
+
+/* --- Coluna da Direita (Fluxograma) --- */
+.flow-grid {
+    display: grid;
+    /* 3 Colunas: item, seta, item */
+    grid-template-columns: 1fr auto 1fr;
+    /* 3 Linhas: topo, meio, baixo */
+    grid-template-rows: auto auto auto;
+    align-items: center; 
+    justify-items: center;
+    gap: 10px 15px; /* 10px de espaço entre linhas, 15px entre colunas */
+    text-align: center;
+}
+
+/* Define a posição de cada item no grid */
+#flow-coop    { grid-area: 1 / 1 / 2 / 2; }
+#arrow-1      { grid-area: 1 / 2 / 2 / 3; }
+#flow-armazem { grid-area: 1 / 3 / 2 / 4; }
+
+#arrow-2      { grid-area: 2 / 3 / 3 / 4; align-self: start; } /* Seta para baixo */
+
+#flow-dist    { grid-area: 3 / 1 / 4 / 2; }
+#arrow-3      { grid-area: 3 / 2 / 4 / 3; }
+#flow-produtor{ grid-area: 3 / 3 / 4 / 4; }
+
+/* Wrapper para o círculo e o texto */
+.flow-item-wrapper p {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+/* O círculo do ícone */
+.flow-item {
+    background-color: #dcedc8; /* Fundo verde-claro/amarelo do círculo */
+    color: #3a7d44;     /* Cor verde-escura para o ícone */
+    border-radius: 50%; /* Círculo perfeito */
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.flow-icon {
+    font-size: 2.5rem;
+}
+
+/* Estilo das setas */
+.flow-arrow {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #c8e6c9; /* Cor verde clara para as setas */
+}
+/* --- Seção Missão (Parceria) --- */
+.mission-section {
+    /* Imagem de fundo com um 'overlay' (camada) branca 
+      translúcida por cima, como na sua referência.
+    */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('naturezaretrocomcampo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito parallax */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.mission-section .container {
+    max-width: 800px; /* Caixa de conteúdo um pouco mais estreita */
+}
+
+/* Texto de introdução da seção */
+.intro-text {
+    font-size: 1.5rem;
+    color: #333; /* Texto escuro sobre fundo claro */
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+/* Caixa verde escura */
+.mission-box {
+    background-color: #1A4A2A; /* Verde escuro do tema */
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mission-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espaço entre os itens da lista */
+}
+
+.mission-box li {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre o ícone e o texto */
+    font-size: 1.15rem; /* Tamanho do texto */
+    line-height: 1.5;
+}
+
+.mission-box li p {
+    margin: 0;
+}
+
+.mission-box li p strong {
+    font-weight: 700;
+}
+
+/* Estilo para os seus ícones brancos */
+.mission-icon-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain; /* Garante que o ícone caiba sem distorcer */
+}
+
+/* --- Rodapé Principal (Parceiros) --- */
+.main-footer {
+    background-color: #1A4A2A; /* Verde escuro do tema */
+    padding: 20px 5%; /* Espaçamento interno */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Joga os logos para lados opostos */
+    align-items: center;
+    max-width: 1200px; /* Largura máxima do conteúdo do rodapé */
+    margin: 0 auto; /* Centraliza o container */
+}
+
+.footer-logo {
+    object-fit: contain;
+}
+
+/* Logo da Agrosustenta na esquerda */
+.logo-left {
+    height: 45px; /* Altura do logo */
+    width: auto;
+}
+
+/* Imagem composta dos parceiros na direita */
+.logo-right {
+    height: 50px; /* Altura da imagem dos parceiros */
+    width: auto;
+}
+/* --- Estilos para a Página de Perfil --- */
+
+/* 1. Novo Fundo */
+/* Usa a nova imagem de fundo */
+.hero-profile {
+    background-image: url('agricultoragronomosenior.jpg');
+    /* Centraliza a caixa de seleção */
+    justify-content: center; 
+    align-items: center;
+    padding: 0 5%; /* Adiciona um padding para a caixa não colar nas bordas */
+}
+
+/* 2. Caixa de Seleção Verde Escura */
+.profile-selection-box {
+    width: 100%;
+    max-width: 450px; /* Largura máxima da caixa */
+    background-color: #1A4A2A; /* Verde escuro do tema */
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.profile-selection-box h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem; /* Espaço abaixo do título */
+}
+
+/* 3. Botões de Perfil (Cooperativa, Armazém, etc.) */
+.profile-button {
+    display: block; /* Faz o link ocupar a largura inteira */
+    background-color: #a5b45f; /* Tom de verde-oliva da imagem */
+    color: #1A4A2A; /* Texto verde escuro */
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem; /* Espaço entre os botões */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile-button:last-child {
+    margin-bottom: 0; /* Remove a margem do último botão */
+}
+
+.profile-button:hover {
+    background-color: #bdc97c; /* Cor mais clara ao passar o mouse */
+    transform: scale(1.02); /* Leve efeito de zoom */
+}
+/* ======================================= */
+/* --- Estilos da Página de Cadastro (cadastro-cooperativa.html) --- */
+/* ======================================= */
+
+/* Estilo para o link 'ativo' no menu */
+header .nav-links a.active {
+    background-color: #e6db74; /* Tom de amarelo da imagem */
+    color: #1A4A2A; /* Texto verde escuro */
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+}
+
+/* Container principal da página (divide em 2 colunas) */
+.cadastro-container {
+    display: flex;
+    /* Altura total da tela, menos o header */
+    height: calc(100vh - 75px); 
+}
+
+/* --- Lado Esquerdo (Formulário) --- */
+.form-section {
+    flex: 1; /* Ocupa metade da tela */
+    background-color: #1A4A2A; /* Verde escuro */
+    padding: 40px 5%;
+    color: white;
+    overflow-y: auto; /* Adiciona scroll se o formulário for longo */
+}
+
+.form-section h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+/* Caixa transparente escura ao redor do form */
+.form-box {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Espaço entre cada campo */
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 8px; /* Espaço entre o label e o input */
+}
+
+/* Campos de input (caixas cinzas) */
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3); /* Cinza claro semi-transparente */
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.form-group input[type="text"]::placeholder {
+    color: #e0e0e0;
+}
+
+
+/* --- Lado Direito (Imagem) --- */
+.image-section {
+    flex: 1; /* Ocupa a outra metade da tela */
+    background-image: url('apertodemao.jpg');
+    background-size: cover;
+    background-position: center;
+
+    /* Para posicionar o logo e o botão */
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.cadastro-logo {
+    width: 150px;
+    margin-bottom: 2rem;
+}
+
+/* Botão "PRÓXIMO" */
+.image-section .profile-button {
+    /* Posiciona o botão no final da seção */
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+    width: calc(100% - 80px); /* Ocupa a largura com padding */
+    text-align: center;
+}
+/* =======================================
+  Estilos da Tabela Detalhada (Card 2)
+  =======================================
+*/
+
+/* O card detalhado tem um fundo claro */
+.detailed-table-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco/claro semi-transparente */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 0; /* Remove o padding interno do card, pois a tabela o define */
+}
+
+/* O cabeçalho desta tabela não tem borda inferior do card */
+.detailed-table-card .card-header {
+    border-bottom: none;
+    padding: 25px 30px 10px 30px; /* Mais padding no topo, menos embaixo */
+    background: none; /* Sem cor de fundo no cabeçalho */
+}
+
+.detailed-table-card .card-actions {
+    margin-top: 5px;
+}
+
+/* Container da Tabela */
+.detailed-table-data-wrapper {
+    padding: 10px 30px 30px 30px; /* Padding ao redor da tabela */
+    overflow-x: auto; /* Permite scroll horizontal se a tela for pequena */
+}
+
+/* Estrutura de Grid para a Tabela Detalhada */
+.detailed-table-grid {
+    display: grid;
+    /* Define 5 colunas com larguras responsivas */
+    grid-template-columns: 1.5fr 2fr 1fr 2fr 1.5fr; 
+    border-radius: 5px;
+    overflow: hidden; /* Garante que os cantos arredondados funcionem */
+}
+
+/* Estilo do Cabeçalho da Tabela */
+.detailed-table-grid .header-cell {
+    background-color: #6a7c6e; /* Verde-cinza escuro para o cabeçalho */
+    color: white;
+    padding: 12px 15px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.detailed-table-grid .header-cell:last-child {
+    border-right: none;
+}
+
+/* Estilo das Células de Dados */
+.detailed-table-grid .detailed-cell {
+    padding: 15px;
+    font-size: 0.95rem;
+    color: white;
+    /* Adiciona uma linha vertical sutil */
+    border-right: 1px solid rgba(255, 255, 255, 0.1); 
+    display: flex; /* Para alinhar o conteúdo verticalmente */
+    align-items: center;
+}
+
+/* Estilo das Linhas (alternando cores) */
+.detailed-table-grid div:nth-child(10n + 6), /* Primeira linha de dados */
+.detailed-table-grid div:nth-child(10n + 7),
+.detailed-table-grid div:nth-child(10n + 8),
+.detailed-table-grid div:nth-child(10n + 9),
+.detailed-table-grid div:nth-child(10n + 10) {
+    /* Cor mais escura para a primeira linha (LT-001) */
+    background-color: #1A4A2A; /* Verde Escuro */
+}
+
+.detailed-table-grid div:nth-child(10n + 11), /* Segunda linha de dados */
+.detailed-table-grid div:nth-child(10n + 12),
+.detailed-table-grid div:nth-child(10n + 13),
+.detailed-table-grid div:nth-child(10n + 14),
+.detailed-table-grid div:nth-child(10n + 15) {
+    /* Cor mais clara para a segunda linha (LT-002) */
+    background-color: #3a7d44; /* Verde Médio */
+}
+
+/* Remove a linha vertical da última coluna */
+.detailed-table-grid div:nth-child(5n) {
+    border-right: none;
+}
+
+/* Ajuste de cor para o texto do Bloco de Resumo Geral (para ficar mais escuro) */
+.summary-table .table-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+/* =======================================
+  Padronização das Tabelas no Histórico de Lotes
+  (Substituir as regras de .summary-table e .detailed-table-grid)
+  =======================================
+*/
+
+/* ---------------------------------------
+   Regras Gerais para Ambas as Tabelas (Resumo e Detalhada)
+   --------------------------------------- */
+
+/* Estilo do Cabeçalho de Dados */
+.table-container .header-cell, 
+.detailed-table-grid .header-cell {
+    background-color: #436d4b; /* Verde-cinza escuro da sua imagem */
+    color: white;
+    padding: 15px 15px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-right: 1px solid rgb(255, 228, 228);
+}
+
+.table-container .header-cell:last-child,
+.detailed-table-grid .header-cell:last-child {
+    border-right: none;
+}
+
+/* Estilo das Células de Dados (Geral) */
+.table-container .table-cell,
+.detailed-table-grid .detailed-cell {
+    color: white; /* Cor branca para o texto */
+    padding: 15px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #ffffff(255, 255, 255, 0.1);
+}
+
+.table-container .table-cell:last-child,
+.detailed-table-grid .detailed-cell:last-child {
+    border-right: none;
+}
+
+
+/* ---------------------------------------
+  /* ===== FUNDO DA PÁGINA ===== */
+body {
+    background-image: url("grandecampodearrozverde.jpg");
+    background-size: cover;          /* cobre toda a tela */
+    background-position: center;     /* centraliza a imagem */
+    background-repeat: no-repeat;    /* não repete */
+    background-attachment: fixed;    /* efeito parallax */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== CENTRALIZAR CONTEÚDO ===== */
+.dashboard-main {
+    display: flex;
+    justify-content: center;    /* centraliza horizontal */
+    width: 100%;
+}
+
+.dashboard-content {
+    width: 90%;
+    max-width: 1200px;          /* tamanho centralizado */
+    margin: 40px auto;
+}
+
+/* ===== DEIXAR OS CARDS TRANSPARENTES COM FUNDO SUAVE ===== */
+.dashboard-card {
+    background-color: rgba(255, 255, 255, 0.90);  /* branco semi-transparente */
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+/* Ajuste do header */
+.dashboard-header-light {
+    background: rgba(0, 60, 0, 0.85);
+    backdrop-filter: blur(5px);
+}
+
+/* =======================================
+   Estilo do Cabeçalho do Dashboard (Barra Branca)
+   ======================================= */
+
+.dashboard-header-light {
+    background-color: #436d4b; /* Garante o fundo branco */
+    padding: 1rem 20px;
+    border-bottom: 1px solid #436d4b;
+    position: relative;
+    z-index: 100; /* Garante que fique acima da imagem de fundo */
+}
+
+/* Ajuste dos links para ficarem escuros no fundo branco */
+.dashboard-link {
+    color: #ffffff; /* Texto escuro */
+    text-decoration: none;
+    font-weight: 600; /* Um pouco mais negrito */
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    transition: color 0.2s ease;
+    text-transform: uppercase; /* Letras maiúsculas como na imagem */
+}
+
+.dashboard-link:hover {
+    color: #ffffff; /* Verde ao passar o mouse */
+}
+
+/* Destaque para o link ativo (Ver Histórico) */
+.dashboard-link.active-link {
+    color: #ffffff; /* Verde escuro */
+}
+
+/* Ícone de voltar */
+.icon-arrow-left {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1A4A2A;
+}
+
+/* Espaçamento entre os links no menu */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Mais espaço entre os botões */
+}
+/* =======================================
+   Estilos do Dashboard de Armazém
+   ======================================= */
+
+/* 1. Imagem de Fundo Específica */
+#armazem-main {
+    /* Substitui a imagem do arroz pela imagem da natureza retro */
+    background-image: url('bela-natureza-retro-com-campo.jpg');
+}
+
+/* 2. Imagem do Gráfico */
+.chart-image-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #557c5e; /* Fundo verde atrás do gráfico (caso a imagem tenha transparência) */
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.full-width-chart {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 3. Card da Tabela (Fundo transparente para mostrar a imagem) */
+.armazem-table-card {
+    background: none; /* Remove fundo branco */
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Cabeçalho do Card (Fundo Branco Arredondado) */
+.armazem-table-card .card-header {
+    background-color: white;
+    border-radius: 8px 8px 0 0; /* Arredonda só em cima */
+    padding: 20px 30px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Container da Tabela (Fundo Verde Translúcido) */
+.armazem-table-container {
+    background-color: rgba(106, 138, 74, 0.85); /* Verde musgo translúcido */
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Grid da Tabela */
+.armazem-grid {
+    display: grid;
+    /* 5 colunas */
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 2fr;
+    margin-bottom: 20px;
+}
+
+/* Cabeçalho das Colunas (Branco) */
+.armazem-grid .header-cell {
+    background-color: white;
+    color: #1A4A2A; /* Texto Verde Escuro */
+    font-weight: bold;
+    padding: 10px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 2px; /* Espacinho entre header e dados */
+}
+
+/* Células de Dados */
+.armazem-grid .armazem-cell:not(.header-cell) {
+    padding: 12px 10px;
+    color: white;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.3); /* Linha divisória sutil */
+}
+
+/* 4. Linha de Status (Especial) */
+.status-row {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding-top: 10px;
+}
+
+.status-label {
+    background-color: white;
+    color: #ffffff; /* Vermelho para a palavra "Status:" */
+    font-weight: bold;
+    padding: 8px 20px;
+    margin-right: 20px;
+    border-radius: 4px;
+    width: 150px; /* Largura fixa para alinhar */
+}
+
+.status-values {
+    display: flex;
+    gap: 60px; /* Espaçamento entre os status */
+    color: #e6db74; /* Amarelo claro para o texto */
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+/* =======================================
+   Estilos da Página de Rastreio (rastreio.html)
+   ======================================= */
+
+/* --- Banner de Sementes --- */
+.tracking-banner {
+    /* Imagem de fundo enviada: contato.jpg */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('contato.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tracking-banner-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: white;
+    flex-wrap: wrap; /* Para mobile */
+}
+
+/* Ícone QR Code Verde */
+.qr-icon-box {
+    background-color: #64dd17; /* Verde Limão Neon */
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.banner-text {
+    flex: 1; /* Ocupa o espaço do meio */
+}
+
+.banner-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.banner-text p {
+    font-size: 1.2rem;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Botão Verde Limão */
+.generate-qr-btn {
+    background-color: #76c927; /* Verde da imagem */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+.generate-qr-btn:hover {
+    background-color: #64b020;
+}
+
+
+/* --- Seção de Conteúdo Escuro --- */
+.tracking-info-section {
+    background-color: #0b2b14; /* Verde Floresta Muito Escuro */
+    color: white;
+    padding: 60px 20px;
+    min-height: 400px;
+}
+
+.tracking-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Coluna da Esquerda */
+.tracking-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+.tracking-logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.company-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.contact-area p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-social {
+    background-color: white;
+    color: #0b2b14;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px; /* Quadrado arredondado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Coluna da Direita */
+.tracking-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tracking-right h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Caixas de Informação Verde Limão */
+.info-display-box {
+    background-color: #76c927; /* Verde Limão */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white; /* Texto branco (ou use #0b2b14 se quiser texto escuro) */
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.info-display-box .label {
+    opacity: 0.9;
+}
+
+.info-display-box .value {
+    font-weight: bold;
+}
